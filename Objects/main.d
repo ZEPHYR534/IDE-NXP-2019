@@ -11,3 +11,4 @@
 .\objects\main.o: camera_FTM.h
 .\objects\main.o: pwm_motors.h
 .\objects\main.o: pwm_servo.h
+.\objects\main.o: timer.h

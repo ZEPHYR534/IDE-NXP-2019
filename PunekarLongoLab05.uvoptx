@@ -152,34 +152,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>114</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>5812</Address>
+          <LineNumber>143</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>8316</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\shosh\Desktop\CAMERADEBUG - 001\camera_FTM_blank.c</Filename>
+          <Filename>.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\PunekarLongoLab05\camera_FTM_blank.c\114</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>93</LineNumber>
-          <EnabledFlag>0</EnabledFlag>
-          <Address>5680</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\shosh\Desktop\CAMERADEBUG - 001\camera_FTM_blank.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\PunekarLongoLab05\camera_FTM_blank.c\93</Expression>
+          <Expression>\\\main.c\143</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -192,6 +176,11 @@
           <count>1</count>
           <WinNumber>1</WinNumber>
           <ItemText>SmoothVals</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>BinTrace</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

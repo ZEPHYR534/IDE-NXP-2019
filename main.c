@@ -8,8 +8,18 @@ This is the main file.
 #include "camera_FTM.h"
 #include "pwm_motors.h"
 #include "pwm_servo.h"
+#include "timer.h" //Only for LED functions
 
-#define CLOCK					       20485760u
+#define CLOCK	20485760u
+#define INTEGRATION_TIME .0075f
+#define	DC_FREQ 10000
+#define SERVO_FREQ 50
+#define FWD 1
+#define BCK 0
+#define RIGHT 8
+#define LEFT 10
+#define STRAIGHT 9
+
 
 //Grab the external GVs
 extern uint16_t line[128];
@@ -20,6 +30,8 @@ extern int capcnt;
 float SmoothVals[128];
 int BinTrace[128];
 char strbuff[100];
+int CAMERA_ERROR_MARGIN = 10;
+
 
 //Set the Max and Min Cuttoff Freqs.
 float CuttoffHigh = 21000;
@@ -32,8 +44,6 @@ int servo_duty_cycle = 8;
 int dc_freq = 10000;
 int servo_freq = 50;
 
-int FWD = 1;
-int BCK = 0;
 /*********************************************************************/
 
 void delay(int del){
@@ -56,7 +66,7 @@ void filter_data_manipulation(){
 	for(int i =0; i < 128; i++){
 		if(state == 0x00){
 			if(SmoothVals[i] > CuttoffHigh){
-				state = 1;
+				state = 0x01;
 			}	
 		}
 		else{//state = 0x01}
@@ -101,26 +111,56 @@ int main(void)
 	*/
 	initialize_periferials();
 	for(;;) {
+		//GPIOB_PCOR |= (1 << 22);//Turn on red LED?
+		filter_data_manipulation();
+		//GPIOB_PSOR |= (1 << 22); //Turn off red LED?
 		if (debugcamdata) {
-			if (capcnt >= (500)) {          // Every 2 seconds
-				GPIOB_PCOR |= (1 << 22);		  // send the array over uart
+			//Print UART Data if being sent
+			if (capcnt >= (500)) { // Every 2 seconds
 				sprintf(strbuff,"%i\n\r",-1); // start value
 				uart_put(strbuff);
-				filter_data_manipulation();
-				SmoothVals[127] = -2.0;
 				for (int i = 0; i < 127; i++) {
 					sprintf(strbuff,"%f\n", SmoothVals[i]);
 					uart_put(strbuff);
 				}
+				SmoothVals[127] = -2.0;
 				sprintf(strbuff,"%i\n\r",-2); // end value
 				uart_put(strbuff);
-				capcnt = 0;
-				GPIOB_PSOR |= (1 << 22);
+				capcnt = 0; //restart counter for printing data point
 			}
+		}
+		//Move the Servo and motors based on GVs set from filter_data_manbipulation
+		int Left_Avg = 0; 
+		int Right_Avg = 0;
+		for(int i = 0; i < 64; i++){
+			if(BinTrace[i] == 0x0F){Left_Avg += 1;}
+		}
+		for(int i = 64; i < 127; i++){
+			if(BinTrace[i] == 0x0F){Right_Avg += 1;}
+		}
+		//Determine the direction from the values calculated.
+		//If car is leaning to the left, turn left & vice versa.
+		if(Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN)){
+			//Turn Right
+			SetDutyCycleServo(RIGHT, SERVO_FREQ);
+			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle+5, DC_FREQ, FWD);
+			LED_Activate(0,0,1); //Turn Green when going right
+		}
+		else if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)){
+			//Turn Left
+			SetDutyCycleServo(LEFT, SERVO_FREQ);
+			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle+5, DC_FREQ, FWD);
+			LED_Activate(0,1,0); //Turn Blue when going left
+		}
+		else{
+			//Go Straight
+			SetDutyCycleServo(STRAIGHT, SERVO_FREQ);
+			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle+5, DC_FREQ, FWD);
+			LED_Activate(1,1,1); //Turn White when going straight
 		}
 	} //for
 } //main
-
-
-
 
