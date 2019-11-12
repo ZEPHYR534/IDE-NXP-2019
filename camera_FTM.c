@@ -59,7 +59,7 @@ uint16_t line[128];
 
 // These variables are for streaming the camera
 //	 data over UART
-int debugcamdata = 1;
+int debugcamdata = 0;
 int capcnt = 0;
 char str[100];
 
@@ -112,7 +112,6 @@ void FTM2_IRQHandler(void){ //For FTM timer
 		// Disable FTM2 interrupts (until PIT0 overflows
 		//   again and triggers another line capture)
 		FTM2_SC &= ~(FTM_SC_TOF_MASK);       //Clear inturupt
-	
 	}
 	return;
 }

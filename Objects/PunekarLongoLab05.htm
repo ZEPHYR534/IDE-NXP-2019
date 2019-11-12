@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\PunekarLongoLab05.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\PunekarLongoLab05.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Nov 12 16:03:22 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Nov 12 16:22:38 2019
 <BR><P>
 <H3>Maximum Stack Usage =        324 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -873,13 +873,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ae]"></a>SetDutyCycleR</STRONG> (Thumb, 52 bytes, Stack size 12 bytes, pwm_motors.o(i.SetDutyCycleR))
+<P><STRONG><a name="[ac]"></a>SetDutyCycleR</STRONG> (Thumb, 52 bytes, Stack size 12 bytes, pwm_motors.o(i.SetDutyCycleR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SetDutyCycleR
 </UL>
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ac]"></a>SetDutyCycleServo</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, pwm_servo.o(i.SetDutyCycleServo))
+<P><STRONG><a name="[ae]"></a>SetDutyCycleServo</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, pwm_servo.o(i.SetDutyCycleServo))
 <BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -949,14 +949,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[80]"></a>main</STRONG> (Thumb, 352 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[80]"></a>main</STRONG> (Thumb, 386 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128 + Unknown Stack Size
 <LI>Call Chain = main &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleServo
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleR
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleServo
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleR
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleL
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_data_manipulation

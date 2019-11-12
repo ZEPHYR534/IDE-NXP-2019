@@ -30,7 +30,7 @@ extern int capcnt;
 float SmoothVals[128];
 int BinTrace[128];
 char strbuff[100];
-int CAMERA_ERROR_MARGIN = 13;
+int CAMERA_ERROR_MARGIN = 10;
 
 
 //Set the Max and Min Cuttoff Freqs.
@@ -38,7 +38,7 @@ float CuttoffHigh = 13000;
 float CuttoffLow = 7000;
 
 //Car Stuff
-int dc_duty_cycle = 20;
+int dc_duty_cycle = 22;
 int servo_duty_cycle = 8;
 
 int dc_freq = 10000;
@@ -114,6 +114,7 @@ int main(void)
 		//GPIOB_PCOR |= (1 << 22);//Turn on red LED?
 		filter_data_manipulation();
 		//GPIOB_PSOR |= (1 << 22); //Turn off red LED?
+		
 		if (debugcamdata) {
 			//Print UART Data if being sent
 			if (capcnt >= (50)) { // Every 2 seconds
@@ -138,9 +139,13 @@ int main(void)
 		for(int i = 64; i < 127; i++){
 			if(BinTrace[i] == 0x0F){Right_Avg += 1;}
 		}
+		if((Right_Avg < 10) && (Left_Avg < 10)){
+			SetDutyCycleR(0, DC_FREQ, FWD);
+			SetDutyCycleL(0, DC_FREQ, FWD);
+		}
 		//Determine the direction from the values calculated.
 		//If car is leaning to the left, turn left & vice versa.
-		if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)){
+		else if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)){
 			//Turn Right
 			SetDutyCycleServo(RIGHT, SERVO_FREQ);
 			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
