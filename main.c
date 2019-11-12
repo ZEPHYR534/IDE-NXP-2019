@@ -30,12 +30,12 @@ extern int capcnt;
 float SmoothVals[128];
 int BinTrace[128];
 char strbuff[100];
-int CAMERA_ERROR_MARGIN = 10;
+int CAMERA_ERROR_MARGIN = 13;
 
 
 //Set the Max and Min Cuttoff Freqs.
-float CuttoffHigh = 21000;
-float CuttoffLow = 5000;
+float CuttoffHigh = 13000;
+float CuttoffLow = 7000;
 
 //Car Stuff
 int dc_duty_cycle = 20;
@@ -116,7 +116,7 @@ int main(void)
 		//GPIOB_PSOR |= (1 << 22); //Turn off red LED?
 		if (debugcamdata) {
 			//Print UART Data if being sent
-			if (capcnt >= (500)) { // Every 2 seconds
+			if (capcnt >= (50)) { // Every 2 seconds
 				sprintf(strbuff,"%i\n\r",-1); // start value
 				uart_put(strbuff);
 				for (int i = 0; i < 127; i++) {
@@ -140,14 +140,14 @@ int main(void)
 		}
 		//Determine the direction from the values calculated.
 		//If car is leaning to the left, turn left & vice versa.
-		if(Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN)){
+		if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)){
 			//Turn Right
 			SetDutyCycleServo(RIGHT, SERVO_FREQ);
 			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
 			SetDutyCycleR(dc_duty_cycle+5, DC_FREQ, FWD);
 			LED_Activate(0,0,1); //Turn Green when going right
 		}
-		else if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)){
+		else if(Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN)){
 			//Turn Left
 			SetDutyCycleServo(LEFT, SERVO_FREQ);
 			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
