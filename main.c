@@ -16,9 +16,9 @@ This is the main file.
 #define SERVO_FREQ 50
 #define FWD 1
 #define BCK 0
-#define RIGHT 8
-#define LEFT 10
-#define STRAIGHT 9
+#define RIGHT 8.0
+#define LEFT 10.6
+#define STRAIGHT 9.0
 
 
 //Grab the external GVs
@@ -38,7 +38,7 @@ float CuttoffHigh = 13000;
 float CuttoffLow = 7000;
 
 //Car Stuff
-int dc_duty_cycle = 22;
+int dc_duty_cycle = 50;
 int servo_duty_cycle = 8;
 
 int dc_freq = 10000;
@@ -148,15 +148,15 @@ int main(void)
 		else if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)){
 			//Turn Right
 			SetDutyCycleServo(RIGHT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle+5, DC_FREQ, FWD);
+			SetDutyCycleL(dc_duty_cycle-25, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle+5-25, DC_FREQ, FWD);
 			LED_Activate(0,0,1); //Turn Green when going right
 		}
 		else if(Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN)){
 			//Turn Left
 			SetDutyCycleServo(LEFT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle+5, DC_FREQ, FWD);
+			SetDutyCycleL(dc_duty_cycle-25, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle+5-25, DC_FREQ, FWD);
 			LED_Activate(0,1,0); //Turn Blue when going left
 		}
 		else{
@@ -168,4 +168,16 @@ int main(void)
 		}
 	} //for
 } //main
+
+int main_servo_debug(void){
+	initialize_periferials();
+	for(;;){
+		SetDutyCycleServo(10.6, SERVO_FREQ);
+		delay(30);
+		SetDutyCycleServo(9.0, SERVO_FREQ);
+		delay(30);
+		SetDutyCycleServo(8.0, SERVO_FREQ);
+		delay(30);
+	}
+}
 

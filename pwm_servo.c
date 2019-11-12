@@ -24,7 +24,7 @@ static volatile unsigned int PWMTick = 0;
  * @param Frequency (~1000 Hz to 20000 Hz)
  * @param dir: 1 for C4 active, else C3 active 
  */
-void SetDutyCycleServo(unsigned int DutyCycle, unsigned int Frequency)
+void SetDutyCycleServo(float DutyCycle, unsigned int Frequency)
 {
 	// Calculate the new cutoff value
  
