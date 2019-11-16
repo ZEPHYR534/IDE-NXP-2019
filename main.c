@@ -31,6 +31,7 @@ float SmoothVals[128];
 int BinTrace[128];
 char strbuff[100];
 int CAMERA_ERROR_MARGIN = 10;
+int CAMERA_ERROR_MARGIN_SHARP = 20;
 
 
 //Set the Max and Min Cuttoff Freqs.
@@ -43,6 +44,9 @@ int servo_duty_cycle = 8;
 
 int dc_freq = 10000;
 int servo_freq = 50;
+
+int slowdown_value = 25;
+int differential_value = 15;
 
 /*********************************************************************/
 
@@ -79,7 +83,7 @@ void filter_data_manipulation(){
 	}
 }
 
-void initialize_periferials(){
+void initialize_peripherals(){
 	/*
 	Ititialized all components nesessary for the perifierals to run as
 	well as components necessary for the microcontroller.
@@ -109,7 +113,7 @@ int main(void)
 	The main function for the code. Will initialize everything needed
 	and then run the code for the car to operate.
 	*/
-	initialize_periferials();
+	initialize_peripherals();
 	for(;;) {
 		//GPIOB_PCOR |= (1 << 22);//Turn on red LED?
 		filter_data_manipulation();
@@ -145,18 +149,32 @@ int main(void)
 		}
 		//Determine the direction from the values calculated.
 		//If car is leaning to the left, turn left & vice versa.
-		else if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)){
+		else if((Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)) && (Right_Avg < (Left_Avg + CAMERA_ERROR_MARGIN_SHARP))){
 			//Turn Right
 			SetDutyCycleServo(RIGHT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle-25, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle+5-25, DC_FREQ, FWD);
+			SetDutyCycleL(dc_duty_cycle     - slowdown_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value, DC_FREQ, FWD);
 			LED_Activate(0,0,1); //Turn Green when going right
 		}
-		else if(Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN)){
+		else if((Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN)) && (Left_Avg < (Right_Avg + CAMERA_ERROR_MARGIN_SHARP))){
 			//Turn Left
 			SetDutyCycleServo(LEFT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle-25, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle+5-25, DC_FREQ, FWD);
+			SetDutyCycleL(dc_duty_cycle     - slowdown_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value, DC_FREQ, FWD);
+			LED_Activate(0,1,0); //Turn Blue when going left
+		}
+		else if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN_SHARP)){
+			//Turn Right with differential drive for sharp turns
+			SetDutyCycleServo(RIGHT, SERVO_FREQ);
+			SetDutyCycleL(dc_duty_cycle     - slowdown_value + differential_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value - differential_value, DC_FREQ, FWD);
+			LED_Activate(0,0,1); //Turn Green when going right
+		}
+		else if(Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN_SHARP)){
+			//Turn Left with differential drive for sharp turns
+			SetDutyCycleServo(LEFT, SERVO_FREQ);
+			SetDutyCycleL(dc_duty_cycle     - slowdown_value - differential_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value + differential_value, DC_FREQ, FWD);
 			LED_Activate(0,1,0); //Turn Blue when going left
 		}
 		else{
@@ -169,15 +187,15 @@ int main(void)
 	} //for
 } //main
 
-int main_servo_debug(void){
-	initialize_periferials();
-	for(;;){
-		SetDutyCycleServo(10.6, SERVO_FREQ);
-		delay(30);
-		SetDutyCycleServo(9.0, SERVO_FREQ);
-		delay(30);
-		SetDutyCycleServo(8.0, SERVO_FREQ);
-		delay(30);
-	}
-}
+//int main_servo_debug(void){
+//	initialize_peripherals();
+//	for(;;){
+//		SetDutyCycleServo(10.6, SERVO_FREQ);
+//		delay(30);
+//		SetDutyCycleServo(9.0, SERVO_FREQ);
+//		delay(30);
+//		SetDutyCycleServo(8.0, SERVO_FREQ);
+//		delay(30);
+//	}
+//}
 

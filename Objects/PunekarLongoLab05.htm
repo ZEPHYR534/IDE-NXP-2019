@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\PunekarLongoLab05.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\PunekarLongoLab05.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Nov 12 17:08:05 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Nov 16 14:10:09 2019
 <BR><P>
 <H3>Maximum Stack Usage =        324 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -829,11 +829,11 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk64f12.o(RESET)
 </UL>
 <P><STRONG><a name="[a9]"></a>InitPWM0</STRONG> (Thumb, 146 bytes, Stack size 0 bytes, pwm_motors.o(i.InitPWM0))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
 <P><STRONG><a name="[aa]"></a>InitPWM3</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, pwm_servo.o(i.InitPWM3))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
 <P><STRONG><a name="[9b]"></a>LED_Activate</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, timer.o(i.LED_Activate))
@@ -907,7 +907,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
 <P><STRONG><a name="[a4]"></a>init_FTM2</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, camera_ftm.o(i.init_FTM2))
@@ -915,11 +915,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
 <P><STRONG><a name="[a8]"></a>init_GPIO</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, camera_ftm.o(i.init_GPIO))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
 <P><STRONG><a name="[a5]"></a>init_PIT</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, camera_ftm.o(i.init_PIT))
@@ -927,15 +927,15 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
 <P><STRONG><a name="[a7]"></a>init_uart</STRONG> (Thumb, 114 bytes, Stack size 0 bytes, uart.o(i.init_uart))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
-<P><STRONG><a name="[a6]"></a>initialize_periferials</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, main.o(i.initialize_periferials))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = initialize_periferials &rArr; init_PIT
+<P><STRONG><a name="[a6]"></a>initialize_peripherals</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, main.o(i.initialize_peripherals))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = initialize_peripherals &rArr; init_PIT
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PIT
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_GPIO
@@ -949,7 +949,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[80]"></a>main</STRONG> (Thumb, 404 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[80]"></a>main</STRONG> (Thumb, 608 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128 + Unknown Stack Size
 <LI>Call Chain = main &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -958,7 +958,7 @@ Global Symbols
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleServo
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleR
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDutyCycleL
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_data_manipulation
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Activate
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_put
@@ -973,7 +973,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_IRQHandler
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_periferials
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initialize_peripherals
 </UL>
 
 <P><STRONG><a name="[af]"></a>uart_putchar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, uart.o(i.uart_putchar))
@@ -1064,7 +1064,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[a3]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, camera_ftm.o(i.__NVIC_EnableIRQ))
+<P><STRONG><a name="[a3]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, camera_ftm.o(i.__NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_PIT
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FTM2
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_ADC0
