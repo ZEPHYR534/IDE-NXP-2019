@@ -79,7 +79,7 @@ void filter_data_manipulation(){
 	}
 }
 
-void initialize_periferials(){
+void initialize_peripherals(){
 	/*
 	Ititialized all components nesessary for the perifierals to run as
 	well as components necessary for the microcontroller.
@@ -109,7 +109,7 @@ int main(void)
 	The main function for the code. Will initialize everything needed
 	and then run the code for the car to operate.
 	*/
-	initialize_periferials();
+	initialize_peripherals();
 	for(;;) {
 		//GPIOB_PCOR |= (1 << 22);//Turn on red LED?
 		filter_data_manipulation();
@@ -170,7 +170,7 @@ int main(void)
 } //main
 
 int main_servo_debug(void){
-	initialize_periferials();
+	initialize_peripherals();
 	for(;;){
 		SetDutyCycleServo(10.6, SERVO_FREQ);
 		delay(30);

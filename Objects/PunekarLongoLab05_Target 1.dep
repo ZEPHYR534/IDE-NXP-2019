@@ -1,86 +1,0 @@
-Dependencies for Project 'PunekarLongoLab05', Target 'Target 1': (DO NOT MODIFY !)
-F (.\uart.c)(0x5DCAB6EA)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
-I (MK64F12.h)(0x5D8CC116)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
-F (.\timer.c)(0x5DCABA5F)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
-I (MK64F12.h)(0x5D8CC116)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
-I (uart.h)(0x5DCAB72B)
-I (isr.h)(0x5D8CBFE0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEC22A2)
-F (.\main.c)(0x5DCB2D3A)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (MK64F12.h)(0x5D8CC116)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
-I (uart.h)(0x5DCAB72B)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEC22A2)
-I (camera_FTM.h)(0x5DCABB52)
-I (pwm_motors.h)(0x5DCB23CA)
-I (pwm_servo.h)(0x5DCB2B76)
-I (timer.h)(0x5D8CD76C)
-F (.\isr.c)(0x5DCAB9DC)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
-I (isr.h)(0x5D8CBFE0)
-I (MK64F12.h)(0x5D8CC116)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEC22A2)
-I (uart.h)(0x5DCAB72B)
-I (timer.h)(0x5D8CD76C)
-F (.\pwm_motors.c)(0x5DCAB5E5)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\pwm_motors.o --omf_browse .\objects\pwm_motors.crf --depend .\objects\pwm_motors.d)
-I (MK64F12.h)(0x5D8CC116)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
-I (pwm_motors.h)(0x5DCB23CA)
-F (.\pwm_servo.c)(0x5DCB2B7E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\pwm_servo.o --omf_browse .\objects\pwm_servo.crf --depend .\objects\pwm_servo.d)
-I (MK64F12.h)(0x5D8CC116)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
-I (pwm_servo.h)(0x5DCB2B76)
-F (.\camera_FTM.c)(0x5DCB239C)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\camera_ftm.o --omf_browse .\objects\camera_ftm.crf --depend .\objects\camera_ftm.d)
-I (MK64F12.h)(0x5D8CC116)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
-I (uart.h)(0x5DCAB72B)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5CEC22A2)
-I (pwm_servo.h)(0x5DCB2B76)
-I (pwm_motors.h)(0x5DCB23CA)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5CEC22A2)
-F (RTE\Device\MK64FN1M0xxx12\startup_MK64F12.s)(0x5404C1E0)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include--pd "__UVISION_VERSION SETA 528" --pd "_RTE_ SETA 1" --pd "MK64FN1M0xxx12 SETA 1"--list .\listings\startup_mk64f12.lst --xref -o .\objects\startup_mk64f12.o --depend .\objects\startup_mk64f12.d)
-F (RTE\Device\MK64FN1M0xxx12\system_MK64F12.c)(0x5404C1E0)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DMK64FN1M0xxx12-o .\objects\system_mk64f12.o --omf_browse .\objects\system_mk64f12.crf --depend .\objects\system_mk64f12.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5CEC22A2)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK64F12.h)(0x585C24CA)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B97BD04)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8FF694)
-I (C:\Users\shosh\AppData\Local\Arm\Packs\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK64F12.h)(0x5404B3D0)
