@@ -10,15 +10,17 @@ This is the main file.
 #include "pwm_servo.h"
 #include "timer.h" //Only for LED functions
 
-#define CLOCK	20485760u
-#define INTEGRATION_TIME .0075f
-#define	DC_FREQ 10000
-#define SERVO_FREQ 50
-#define FWD 1
-#define BCK 0
-#define RIGHT 8.0
-#define LEFT 10.6
-#define STRAIGHT 9.0
+#define CLOCK							20485760u
+#define INTEGRATION_TIME  .0075f
+#define	DC_FREQ 					10000
+#define SERVO_FREQ 				50
+#define FWD							  1
+#define BCK 							0
+#define RIGHT 						7.8
+#define SOFT_RIGHT 				8.5
+#define LEFT 							10.8
+#define SOFT_LEFT 				9.5
+#define STRAIGHT 					9.0
 
 
 //Grab the external GVs
@@ -36,17 +38,14 @@ int CAMERA_ERROR_MARGIN_SHARP = 20;
 
 //Set the Max and Min Cuttoff Freqs.
 float CuttoffHigh = 13000;
-float CuttoffLow = 7000;
+float CuttoffLow  = 7000;
 
 //Car Stuff
 int dc_duty_cycle = 50;
-int servo_duty_cycle = 8;
 
-int dc_freq = 10000;
-int servo_freq = 50;
-
-int slowdown_value = 25;
-int differential_value = 15;
+int soft_slowdown_value     = 15;
+int slowdown_value     			= 20;
+int differential_value 			= 20;
 
 /*********************************************************************/
 
@@ -148,39 +147,39 @@ int main(void)
 			SetDutyCycleL(0, DC_FREQ, FWD);
 		}
 		//Determine the direction from the values calculated.
-		//If car is leaning to the left, turn left & vice versa.
+		//If car is leaning to the left, turn right & vice versa.
 		else if((Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN)) && (Right_Avg < (Left_Avg + CAMERA_ERROR_MARGIN_SHARP))){
 			//Turn Right
-			SetDutyCycleServo(RIGHT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle     - slowdown_value, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value, DC_FREQ, FWD);
+			SetDutyCycleServo(SOFT_RIGHT, SERVO_FREQ);
+			SetDutyCycleL(dc_duty_cycle     - soft_slowdown_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - soft_slowdown_value, DC_FREQ, FWD);
 			LED_Activate(0,0,1); //Turn Green when going right
 		}
 		else if((Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN)) && (Left_Avg < (Right_Avg + CAMERA_ERROR_MARGIN_SHARP))){
 			//Turn Left
-			SetDutyCycleServo(LEFT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle     - slowdown_value, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value, DC_FREQ, FWD);
+			SetDutyCycleServo(SOFT_LEFT, SERVO_FREQ);
+			SetDutyCycleL(dc_duty_cycle     - soft_slowdown_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - soft_slowdown_value, DC_FREQ, FWD);
 			LED_Activate(0,1,0); //Turn Blue when going left
 		}
 		else if(Right_Avg > (Left_Avg + CAMERA_ERROR_MARGIN_SHARP)){
 			//Turn Right with differential drive for sharp turns
 			SetDutyCycleServo(RIGHT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle     - slowdown_value + differential_value, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value - differential_value, DC_FREQ, FWD);
+			SetDutyCycleL(dc_duty_cycle     - slowdown_value - differential_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value + differential_value, DC_FREQ, FWD);
 			LED_Activate(0,0,1); //Turn Green when going right
 		}
 		else if(Left_Avg > (Right_Avg + CAMERA_ERROR_MARGIN_SHARP)){
 			//Turn Left with differential drive for sharp turns
 			SetDutyCycleServo(LEFT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle     - slowdown_value - differential_value, DC_FREQ, FWD);
-			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value + differential_value, DC_FREQ, FWD);
+			SetDutyCycleL(dc_duty_cycle     - slowdown_value + differential_value, DC_FREQ, FWD);
+			SetDutyCycleR(dc_duty_cycle + 5 - slowdown_value - differential_value, DC_FREQ, FWD);
 			LED_Activate(0,1,0); //Turn Blue when going left
 		}
 		else{
 			//Go Straight
 			SetDutyCycleServo(STRAIGHT, SERVO_FREQ);
-			SetDutyCycleL(dc_duty_cycle, DC_FREQ, FWD);
+			SetDutyCycleL(dc_duty_cycle,   DC_FREQ, FWD);
 			SetDutyCycleR(dc_duty_cycle+5, DC_FREQ, FWD);
 			LED_Activate(1,1,1); //Turn White when going straight
 		}
